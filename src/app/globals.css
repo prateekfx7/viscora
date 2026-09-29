@@ -1,0 +1,290 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: 'TT Commons';
+  src: url('/fonts/TT Commons Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Commons';
+  src: url('/fonts/TT Commons Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Commons';
+  src: url('/fonts/TT Commons Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Commons';
+  src: url('/fonts/TT Commons Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Commons';
+  src: url('/fonts/TT Commons Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans), 'TT Commons', sans-serif;
+  --font-heading: var(--font-sans), 'TT Commons', sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Viscora AI custom colors */
+  --color-amber: #f59e0b;
+  --color-amber-light: #fbbf24;
+  --color-amber-dark: #d97706;
+  --color-cyan: #0284c7;
+  --color-cyan-light: #38bdf8;
+  --color-cyan-dark: #0369a1;
+  --color-heat: #ef4444;
+  --color-heat-light: #f87171;
+  --color-steam: #f97316;
+  --color-oil: #854d0e;
+}
+
+/* Light theme (Default - matching Clora & Modern SaaS references) */
+:root {
+  --background: oklch(0.985 0.005 250);
+  --foreground: oklch(0.18 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 260);
+  --primary: oklch(0.55 0.22 260);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 250);
+  --secondary-foreground: oklch(0.22 0.02 260);
+  --muted: oklch(0.96 0.005 250);
+  --muted-foreground: oklch(0.52 0.02 255);
+  --accent: oklch(0.95 0.03 250);
+  --accent-foreground: oklch(0.42 0.18 260);
+  --destructive: oklch(0.60 0.22 25);
+  --border: oklch(0.92 0.008 250);
+  --input: oklch(0.92 0.008 250);
+  --ring: oklch(0.55 0.22 260);
+  --chart-1: oklch(0.55 0.22 260);
+  --chart-2: oklch(0.68 0.16 55);
+  --chart-3: oklch(0.62 0.18 190);
+  --chart-4: oklch(0.65 0.18 145);
+  --chart-5: oklch(0.60 0.22 25);
+  --radius: 0.65rem;
+  --sidebar: oklch(0.995 0.002 250);
+  --sidebar-foreground: oklch(0.25 0.02 260);
+  --sidebar-primary: oklch(0.55 0.22 260);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.01 250);
+  --sidebar-accent-foreground: oklch(0.18 0.02 260);
+  --sidebar-border: oklch(0.93 0.008 250);
+  --sidebar-ring: oklch(0.55 0.22 260);
+}
+
+/* Dark mode theme */
+.dark {
+  --background: oklch(0.12 0.005 250);
+  --foreground: oklch(0.95 0.005 90);
+  --card: oklch(0.16 0.006 250);
+  --card-foreground: oklch(0.95 0.005 90);
+  --popover: oklch(0.16 0.006 250);
+  --popover-foreground: oklch(0.95 0.005 90);
+  --primary: oklch(0.68 0.19 255);
+  --primary-foreground: oklch(0.10 0.01 260);
+  --secondary: oklch(0.22 0.01 250);
+  --secondary-foreground: oklch(0.92 0.005 90);
+  --muted: oklch(0.20 0.008 250);
+  --muted-foreground: oklch(0.65 0.01 90);
+  --accent: oklch(0.24 0.02 250);
+  --accent-foreground: oklch(0.95 0.005 90);
+  --destructive: oklch(0.62 0.22 25);
+  --border: oklch(0.26 0.01 250);
+  --input: oklch(0.24 0.01 250);
+  --ring: oklch(0.68 0.19 255);
+  --chart-1: oklch(0.68 0.19 255);
+  --chart-2: oklch(0.72 0.16 70);
+  --chart-3: oklch(0.68 0.14 195);
+  --chart-4: oklch(0.68 0.12 145);
+  --chart-5: oklch(0.62 0.22 25);
+  --sidebar: oklch(0.14 0.005 250);
+  --sidebar-foreground: oklch(0.90 0.005 90);
+  --sidebar-primary: oklch(0.68 0.19 255);
+  --sidebar-primary-foreground: oklch(0.10 0.01 260);
+  --sidebar-accent: oklch(0.20 0.01 250);
+  --sidebar-accent-foreground: oklch(0.95 0.005 90);
+  --sidebar-border: oklch(0.24 0.01 250);
+  --sidebar-ring: oklch(0.68 0.19 255);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-200;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+}
+
+/* ─── Viscora AI Custom Utilities & Aesthetics ─────────────────────────────── */
+
+/* Clean Card with soft shadow */
+.clean-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+}
+
+.clean-card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.clean-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Blue ambient glow background from Clora reference */
+.ambient-glow {
+  background-image: 
+    radial-gradient(ellipse 65% 55% at 50% -10%, rgba(99, 102, 241, 0.12) 0%, rgba(59, 130, 246, 0.05) 45%, transparent 80%),
+    radial-gradient(ellipse 40% 30% at 85% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+}
+
+.dark .ambient-glow {
+  background-image: 
+    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(59, 130, 246, 0.12) 0%, rgba(245, 158, 11, 0.04) 40%, transparent 80%);
+}
+
+/* Vibrant Sunset Gradient Banner from Dashboard Reference Image 3 */
+.banner-sunset {
+  background: linear-gradient(110deg, #ff4b2b 0%, #ff416c 40%, #ff8c61 75%, #ffc371 100%);
+}
+
+/* Glassmorphism preview badge */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+.dark .glass-pill {
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+}
+
+/* Floating Card shadow */
+.floating-shadow {
+  box-shadow: 
+    0 25px 60px -15px rgba(15, 23, 42, 0.12),
+    0 10px 25px -8px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(226, 232, 240, 0.8);
+}
+.dark .floating-shadow {
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.45),
+    0 10px 25px -8px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(51, 65, 85, 0.6);
+}
+
+/* Gradient text */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-heat {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Synthetic data badge */
+.synthetic-badge {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #2563eb;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.dark .synthetic-badge {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+}
+
+/* Grid pattern background */
+.grid-bg-light {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.dark .grid-bg-light {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
